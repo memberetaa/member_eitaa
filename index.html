@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات ممبر بدون ریزش ایتا</title>
+  <meta name="description" content="خدمات ممبر بدون ریزش ایتا با تضمین یک هفته">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Vazirmatn",Tahoma,sans-serif;
+      background:linear-gradient(135deg,#06152e 0%,#09295a 45%,#06152e 100%);
+      color:#fff;min-height:100vh;line-height:1.8;
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
+      background-image:radial-gradient(#55aaff 1px,transparent 1px);
+      background-size:28px 28px;
+    }
+    .container{width:min(1050px,92%);margin:auto;position:relative;z-index:1}
+    header{
+      padding:42px 0 28px;text-align:center;
+    }
+    .badge{
+      display:inline-block;padding:7px 18px;border:1px solid #4fa7ff66;
+      background:#0d3a70aa;border-radius:999px;color:#9ed0ff;font-size:14px;margin-bottom:15px;
+    }
+    h1{
+      font-size:clamp(28px,6vw,52px);font-weight:900;
+      background:linear-gradient(90deg,#fff,#78c3ff,#fff);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-shadow:0 8px 30px #0005;
+    }
+    .intro{
+      max-width:760px;margin:14px auto 0;color:#c9ddf5;font-size:16px;
+    }
+    .section-title{text-align:center;font-size:25px;font-weight:800;margin:30px 0 18px}
+    .services{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+    }
+    .card{
+      background:linear-gradient(145deg,#0e3261dd,#09254bdd);
+      border:1px solid #4da5ff42;border-radius:22px;padding:25px 20px;
+      box-shadow:0 16px 40px #0003;backdrop-filter:blur(8px);
+      transition:.25s;position:relative;overflow:hidden;
+    }
+    .card:hover{transform:translateY(-5px);border-color:#63b3ff99}
+    .card:after{
+      content:"";position:absolute;width:110px;height:110px;border-radius:50%;
+      background:#299cff18;top:-50px;left:-40px;
+    }
+    .members{font-size:29px;font-weight:900;color:#fff}
+    .guarantee{font-size:14px;color:#78c3ff;font-weight:700;margin:4px 0 14px}
+    .price{font-size:25px;font-weight:900;color:#fff;margin-bottom:18px}
+    .price small{font-size:13px;color:#aac5e3;font-weight:500}
+    button{
+      border:0;width:100%;padding:13px;border-radius:13px;cursor:pointer;
+      background:linear-gradient(90deg,#168cff,#42b4ff);color:#fff;
+      font-family:inherit;font-size:16px;font-weight:800;box-shadow:0 8px 20px #168cff33;
+    }
+    button:hover{filter:brightness(1.08)}
+    .notice{
+      margin:24px auto 0;max-width:900px;padding:19px 22px;border-radius:18px;
+      background:#102e51;border:1px solid #5bb4ff44;color:#d8eaff;text-align:center;
+    }
+    .notice strong{color:#70c1ff}
+    .support{
+      margin:28px 0 45px;text-align:center;padding:28px 20px;border-radius:24px;
+      background:linear-gradient(145deg,#0d3769,#09264d);
+      border:1px solid #55b0ff55;box-shadow:0 15px 40px #0003;
+    }
+    .support h2{font-size:24px;margin-bottom:7px}
+    .support p{color:#c7dbf1}
+    .support a,.id-link{color:#68bdff;font-weight:900;text-decoration:none;font-size:21px}
+    footer{text-align:center;color:#7592b2;font-size:13px;padding:0 0 28px}
+    .modal{
+      display:none;position:fixed;inset:0;background:#020b18cc;z-index:10;
+      align-items:center;justify-content:center;padding:18px;
+    }
+    .modal.show{display:flex}
+    .modal-box{
+      width:min(520px,100%);background:#0b2850;border:1px solid #58b3ff66;
+      border-radius:24px;padding:26px;box-shadow:0 25px 70px #0008;
+      position:relative;
+    }
+    .close{
+      position:absolute;top:12px;left:14px;width:38px;height:38px;padding:0;
+      background:#ffffff12;border:1px solid #ffffff18;font-size:22px;
+    }
+    .modal h3{font-size:24px;margin-bottom:15px;padding-left:35px}
+    .selected{color:#72c2ff;font-weight:800;margin-bottom:15px}
+    .payment{
+      background:#061a35;border:1px solid #55adff38;border-radius:17px;padding:17px;
+      margin-bottom:15px;
+    }
+    .card-number{
+      direction:ltr;text-align:center;letter-spacing:2px;font-size:21px;font-weight:900;
+      margin:4px 0 12px;white-space:nowrap;
+    }
+    .copy{
+      width:auto;padding:9px 17px;font-size:14px;display:block;margin:auto;
+      background:#174d82;
+    }
+    .name{text-align:center;color:#b9d5ef;font-size:14px}
+    .instructions{color:#d7e7f7;font-size:14px}
+    .instructions b{color:#75c4ff}
+    .warning{
+      margin-top:14px;padding:13px;border-radius:13px;background:#11375c;
+      color:#cce3f8;font-size:13px;
+    }
+    @media(max-width:760px){
+      .services{grid-template-columns:1fr}
+      header{padding-top:28px}
+      .card{padding:22px}
+      .members{font-size:27px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">خدمات حرفه‌ای ایتا</span>
+      <h1>خدمات ممبر بدون ریزش ایتا</h1>
+      <p class="intro">
+        دریافت ممبر با <b>تضمین یک هفته</b>؛ سفارش خود را انتخاب کنید و پس از واریز،
+        رسید پرداخت و لینک کانال ایتای خود را برای پشتیبانی ارسال کنید.
+      </p>
+    </header>
+
+    <main>
+      <h2 class="section-title">انتخاب خدمات</h2>
+      <section class="services">
+        <article class="card">
+          <div class="members">۲۰۰ ممبر</div>
+          <div class="guarantee">بدون ریزش • تضمین یک هفته</div>
+          <div class="price">۶۵,۰۰۰ <small>تومان</small></div>
+          <button onclick="openStep1('۲۰۰ ممبر','۶۵,۰۰۰ تومان')">ثبت سفارش</button>
+        </article>
+
+        <article class="card">
+          <div class="members">۵۰۰ ممبر</div>
+          <div class="guarantee">بدون ریزش • تضمین یک هفته</div>
+          <div class="price">۱۵۸,۰۰۰ <small>تومان</small></div>
+          <button onclick="openStep1('۵۰۰ ممبر','۱۵۸,۰۰۰ تومان')">ثبت سفارش</button>
+        </article>
+
+        <article class="card">
+          <div class="members">۱۰۰۰ ممبر</div>
+          <div class="guarantee">بدون ریزش • تضمین یک هفته</div>
+          <div class="price">۲۹۸,۰۰۰ <small>تومان</small></div>
+          <button onclick="openStep1('۱۰۰۰ ممبر','۲۹۸,۰۰۰ تومان')">ثبت سفارش</button>
+        </article>
+      </section>
+
+      <div class="notice">
+        <strong>توجه:</strong>
+        ممبرها در هفته اول با تضمین ارائه می‌شوند. پس از پایان یک هفته،
+        ممکن است ریزش بسیار کمی داشته باشند یا اصلاً ریزشی نداشته باشند.
+      </div>
+
+      <section class="support" id="support">
+        <h2>ارتباط با پشتیبانی ایتا</h2>
+        <p>برای ثبت سفارش، رسید پرداخت و لینک کانال خود را به آیدی زیر ارسال کنید:</p>
+        <a href="https://eitaa.com/ALI_PERSHIAN1" target="_blank" rel="noopener">@ALI_PERSHIAN1</a>
+      </section>
+    </main>
+
+    <footer>© تمامی حقوق محفوظ است</footer>
+  </div>
+
+  <div class="modal" id="orderModal" onclick="if(event.target===this) closeModal()">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal()">×</button>
+
+      <!-- مرحله اول -->
+      <div id="step1">
+        <h3>ثبت سفارش</h3>
+        <div class="selected" id="selectedService"></div>
+        <p class="instructions">
+          برای مشاهده اطلاعات پرداخت، روی دکمه زیر بزنید.
+          <br>
+          <span style="color:#a9c7e5;font-size:13px">بعد از پرداخت، مرحله دوم برای ارسال رسید نمایش داده می‌شود.</span>
+        </p>
+        <button style="margin-top:18px" onclick="showStep2()">نمایش شماره کارت</button>
+      </div>
+
+      <!-- مرحله دوم -->
+      <div id="step2" style="display:none">
+        <h3>اطلاعات پرداخت</h3>
+        <div class="selected" id="selectedService2"></div>
+
+        <div class="payment">
+          <div class="name">شماره کارت</div>
+          <div class="card-number" id="cardNumber">6219 8613 5149 4470</div>
+          <div class="name">به نام مظفری</div>
+          <button class="copy" onclick="copyCard()">کپی شماره کارت</button>
+        </div>
+
+        <button onclick="paymentDone()">واریز کردم — ارسال رسید</button>
+
+        <div class="warning" style="margin-top:16px">
+          <b style="color:#75c4ff">توضیحات و ضمانت یک هفته:</b><br><br>
+          • خدمات ممبر بدون ریزش با <b>تضمین یک هفته</b> ارائه می‌شود.<br>
+          • در هفته اول، خدمات با تضمین ارائه خواهد شد.<br>
+          • بعد از پایان یک هفته، ممکن است تعداد کمی ریزش داشته باشد یا اصلاً ریزشی نداشته باشد.<br>
+          • پس از واریز، <b>رسید پرداخت + لینک کانال ایتای خودتان</b> را برای پشتیبانی ارسال کنید.
+        </div>
+
+        <div style="text-align:center;margin-top:16px">
+          <span style="color:#aac5df;font-size:13px">پشتیبانی ایتا:</span><br>
+          <a class="id-link" href="https://eitaa.com/ALI_PERSHIAN1" target="_blank" rel="noopener">@ALI_PERSHIAN1</a>
+        </div>
+      </div>
+
+      <!-- مرحله سوم: راهنمای ارسال -->
+      <div id="step3" style="display:none">
+        <h3>ارسال رسید پرداخت</h3>
+        <p class="instructions">
+          برای تکمیل سفارش، لطفاً <b>رسید پرداخت + لینک کانال ایتای خودتان</b>
+          را در پیام برای پشتیبانی ارسال کنید.
+        </p>
+        <a href="https://eitaa.com/ALI_PERSHIAN1" target="_blank" rel="noopener"
+           style="display:block;text-align:center;margin-top:18px;text-decoration:none">
+          <button type="button">رفتن به پشتیبانی ایتا</button>
+        </a>
+        <div class="warning">
+          آیدی پشتیبانی: <b>@ALI_PERSHIAN1</b><br>
+          لطفاً هر دو مورد (رسید پرداخت و لینک کانال) را ارسال کنید تا سفارش بررسی شود.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const modal = document.getElementById("orderModal");
+    let selectedServiceText = "";
+
+    function openStep1(service, price){
+      selectedServiceText = "خدمت انتخاب‌شده: " + service + " — " + price;
+      document.getElementById("selectedService").textContent = selectedServiceText;
+      document.getElementById("selectedService2").textContent = selectedServiceText;
+      document.getElementById("step1").style.display="block";
+      document.getElementById("step2").style.display="none";
+      document.getElementById("step3").style.display="none";
+      modal.classList.add("show");
+      document.body.style.overflow="hidden";
+    }
+
+    function showStep2(){
+      document.getElementById("step1").style.display="none";
+      document.getElementById("step2").style.display="block";
+    }
+
+    function paymentDone(){
+      document.getElementById("step2").style.display="none";
+      document.getElementById("step3").style.display="block";
+    }
+
+    function closeModal(){
+      modal.classList.remove("show");
+      document.body.style.overflow="";
+    }
+
+    async function copyCard(){
+      const number="6219861351494470";
+      try{
+        await navigator.clipboard.writeText(number);
+        const btn=document.querySelector(".copy");
+        btn.textContent="کپی شد ✓";
+        setTimeout(()=>btn.textContent="کپی شماره کارت",1500);
+      }catch(e){
+        alert("کپی خودکار انجام نشد؛ شماره کارت را دستی کپی کنید.");
+      }
+    }
+
+    document.addEventListener("keydown",e=>{if(e.key==="Escape") closeModal()});
+  </script>
+</body>
+</html>
